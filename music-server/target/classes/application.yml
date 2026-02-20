@@ -1,0 +1,57 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/musicdb?useUnicode=true&characterEncoding=utf8&connectionCollation=utf8mb4_0900_ai_ci&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+app:
+  jwt:
+    secret: "CHANGE_ME_TO_A_LONG_RANDOM_SECRET_32+_CHARS_MINIMUM"
+    expire-seconds: 86400
+  auth:
+    whitelist:
+      - /test/ping
+      - /user/login
+      - /user/register
+      - /swagger-ui.html
+      - /swagger-ui/*
+      - /v3/api-docs
+      - /v3/api-docs/*
+      - /webjars/*
+
+    public-get:
+      - /song/page
+      - /song/hot
+      - /song/*
+      - /song/*/play-url
+  minio:
+    endpoint: http://localhost:9000
+    access-key: minioadmin
+    secret-key: minioadmin
+    bucket: music
