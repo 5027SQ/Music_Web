@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const service = axios.create({
-  baseURL: '', // 保持空，直接写 /api 统一走代理
+  baseURL: '/api',
   timeout: 10000
 })
 

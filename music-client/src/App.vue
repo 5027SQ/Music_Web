@@ -15,8 +15,9 @@
       </el-main>
     </el-container>
   </el-container>
+  <PlayerBar />
 </template>
 
 <script setup lang="ts">
-// 此处可暂时不用任何逻辑
+import PlayerBar from './components/PlayerBar.vue'
 </script>
